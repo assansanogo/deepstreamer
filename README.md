@@ -1,4 +1,36 @@
-# deepstreamer
+# deepstreamer (check your learning.)
+
+## A. Which of the following computer vision algorithms does the DeepStream SDK support during inference processing?
+
+- Object Detection and Object Tracking
+
+- Object-Oriented Programming, Object Detection, Image Classification, and Object Tracking
+
+- Object Detection, Image Classification, and Object Tracking 👌
+
+
+
+## B. DeepStream applications can visually display which of the following forms of metadata in the on-screen display?
+
+- Bounding boxes for detected objects only
+
+- Bounding boxes for detected objects, detection labels, classification labels, and unique tracking IDs 👌
+
+- The model used for detection, the type of inference done, and the name of the input source
+
+
+## C. You want to change the number of input feeds that are rendered by the on-screen display in a DeepStream application. Which parameter or parameters should you change in the associated configuration file?
+
+- [tiled-display]rows
+
+- [tiled-display]rows and [tiled-display]columns 👌
+
+- [tiled-display]num-sources 
+
+These parameters allow you to render a determined number of input sources to the on-screen display that is equal to [tiled-display]rows * [tiled-display]columns. num-sources specify the inputs source of data that will be processed by the pipeline. 
+
+
+
 
 ## 1. Which of the following statements are true about "bounding boxes" in the context of object detection? (Check all that apply).
 
