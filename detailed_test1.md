@@ -128,7 +128,7 @@ else:
     nvosd.link(sink)
 `````
 
-## step 4: Define an event loop where Gstreamer send data
+## step 5: Define an event loop where Gstreamer send data
     ````
     loop = GObject.MainLoop()
     bus = pipeline.get_bus()
@@ -136,13 +136,13 @@ else:
     bus.connect ("message", bus_call, loop)
     ````
     
-## step 5: Add "probes to fetch information (bounding boxes coordinates for ex)
+## step 6: Add "probes to fetch information (bounding boxes coordinates for ex)
 ex: you can set a probe on the on screen display step by using a *static pad sink*
 
 ` osdsinkpad = nvosd.get_static_pad("sink") `
 ` osdsinkpad.add_probe(Gst.PadProbeType.BUFFER, osd_sink_pad_buffer_probe, 0) `
 
-## step 6: Run the pipeline with an infinite loop
+## step 7: Run the pipeline with an infinite loop
 `````
 
  # start play back and listen to events
@@ -155,6 +155,6 @@ ex: you can set a probe on the on screen display step by using a *static pad sin
 
 `````
 
-## step 7: Set the state of the pipeline to void/null
+## step 8: Set the state of the pipeline to void/null
 `pipeline.set_state(Gst.State.PLAYING)`
  
