@@ -3,14 +3,17 @@
 [deepstream-test1](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps/blob/master/apps/deepstream-test1/deepstream_test_1.py)
 
 The pipeline is as follow:
+````
 Source (file) 
-- -> h264parser 
-- -> decoder (nvv4l2-decoder) 
-- -> nvstreammux (streamuxer) 
-- -> pgie (primary inference) 
-- -> nvdosd (on screen display)
-- -> nvegl-transform (*ONLY* for Jetson)
-- -> nveglglessink (output for display)
+-> h264parser 
+-> decoder (nvv4l2-decoder) 
+-> nvstreammux (streamuxer) 
+-> pgie (primary inference) 
+-> nvdosd (on screen display)
+-> nvegl-transform (*ONLY* for Jetson)
+-> nveglglessink (output for display)
+````
+
 
 ## step 1: You define the pipeline
 (define the pipeline + all steps)
