@@ -15,7 +15,7 @@ Source (file)
 ````
 
 
-## step 1: You define the pipeline
+## step 1: Define the pipeline
 (define the pipeline + all steps)
 
 ````
@@ -76,7 +76,7 @@ if not sink:
     sys.stderr.write(" Unable to create egl sink \n")
 ````
 
-## step 2: You set the properties of given steps:
+## step 2: Set the properties of given steps:
 ````
  - ex: the streammuxer has `height` `width` `batch_size` `batched-push-timeout` properties
  :warning: the muxer "stiches the images together"
@@ -84,7 +84,7 @@ if not sink:
  
  - ex: the primary predictor has `config-file-path` property
 ````
-## step 3: You add each step of the pipeline
+## step 3: Add each step of the pipeline
 
 `````
 print("Adding elements to Pipeline \n")
@@ -101,7 +101,7 @@ print("Adding elements to Pipeline \n")
 `````
 
 
-## step 4: You link each step of the pipeline 
+## step 4: Link each step of the pipeline 
 
 `````
 # we link the elements together
@@ -128,7 +128,7 @@ else:
     nvosd.link(sink)
 `````
 
-## step 4: You define an event loop where Gstreamer send data
+## step 4: Define an event loop where Gstreamer send data
     ````
     loop = GObject.MainLoop()
     bus = pipeline.get_bus()
@@ -136,13 +136,13 @@ else:
     bus.connect ("message", bus_call, loop)
     ````
     
-## step 5: You can add "probes to fetch information (bounding boxes coordinates for ex)
+## step 5: Add "probes to fetch information (bounding boxes coordinates for ex)
 ex: you can set a probe on the on screen display step by using a *static pad sink*
 
 ` osdsinkpad = nvosd.get_static_pad("sink") `
 ` osdsinkpad.add_probe(Gst.PadProbeType.BUFFER, osd_sink_pad_buffer_probe, 0) `
 
-## step 6: run the pipeline with an infinite loop
+## step 6: Run the pipeline with an infinite loop
 `````
 
  # start play back and listen to events
@@ -155,6 +155,6 @@ ex: you can set a probe on the on screen display step by using a *static pad sin
 
 `````
 
-## step 7: set the state of the pipeline to void/null
+## step 7: Set the state of the pipeline to void/null
 `pipeline.set_state(Gst.State.PLAYING)`
  
