@@ -1,4 +1,5 @@
-# deepstreamer (check your learning.)
+# deepstreamer 
+(check your understanding.)
 
 ## A. Which of the following computer vision algorithms does the DeepStream SDK support during inference processing?
 
