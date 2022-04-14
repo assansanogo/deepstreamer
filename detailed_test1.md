@@ -74,6 +74,9 @@ if not sink:
 
 ## step 2: You set the properties of given steps:
  - ex: the streammuxer has `height` `width` `batch_size` `batched-push-timeout` properties
+ :warning: the muxer "stiches the images together"
+ :warning: the batch size should be set to the number of sources
+ 
  - ex: the primary predictor has `config-file-path` property
  
 ## step 3: You add each step of the pipeline
