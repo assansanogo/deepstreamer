@@ -72,7 +72,7 @@ if is_aarch64():
 print("Creating EGLSink \n")
 sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
 if not sink:
-    sys.stderr.write(" Unable to create egl sink \n") `````
+    sys.stderr.write(" Unable to create egl sink \n")
 ````
 
 ## step 2: You set the properties of given steps:
