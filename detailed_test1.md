@@ -4,13 +4,13 @@
 
 The pipeline is as follow:
 Source (file) 
--> h264parser 
--> decoder (nvv4l2-decoder) 
--> nvstreammux (streamuxer) 
--> pgie (primary inference) 
--> nvdosd (on screen display)
--> nvegl-transform (ONLY for Jetson)
--> nveglglessink (output for display)
+- -> h264parser 
+- -> decoder (nvv4l2-decoder) 
+- -> nvstreammux (streamuxer) 
+- -> pgie (primary inference) 
+- -> nvdosd (on screen display)
+- -> nvegl-transform (ONLY for Jetson)
+- -> nveglglessink (output for display)
 
 ## step 1: You define each step of the pipeline
 ## step 2: You set the properties of given steps:
