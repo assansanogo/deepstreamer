@@ -15,12 +15,11 @@ Source (file)
 ## step 1: You define the pipeline
 (define the pipeline + all steps)
 
-`
-print("Creating Pipeline \n ")
+`print("Creating Pipeline \n ")
 pipeline = Gst.Pipeline()
 
 if not pipeline:
-    sys.stderr.write(" Unable to create Pipeline \n")
+    sys.stderr.write(" Unable to create Pipeline \n")`
 
 # Source element for reading from the file
 print("Creating Source \n ")
