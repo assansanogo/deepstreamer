@@ -73,15 +73,16 @@ print("Creating EGLSink \n")
 sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
 if not sink:
     sys.stderr.write(" Unable to create egl sink \n") `````
-
+````
 
 ## step 2: You set the properties of given steps:
+````
  - ex: the streammuxer has `height` `width` `batch_size` `batched-push-timeout` properties
  :warning: the muxer "stiches the images together"
- :warning: the batch size should be set to the number of sources
+ :warning: the batch size should be set to a multiple of the number of sources
  
  - ex: the primary predictor has `config-file-path` property
- 
+````
 ## step 3: You add each step of the pipeline
 
 `````
