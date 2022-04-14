@@ -129,7 +129,7 @@ else:
 `````
 
 ## step 4: You define an event loop where Gstreamer send data
-    `````
+    ````
     loop = GObject.MainLoop()
     bus = pipeline.get_bus()
     bus.add_signal_watch()
