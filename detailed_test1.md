@@ -15,11 +15,11 @@ Source (file)
 ## step 1: You define the pipeline
 (define the pipeline + all steps)
 
-`print("Creating Pipeline \n ")
+````print("Creating Pipeline \n ")
 pipeline = Gst.Pipeline()
 
 if not pipeline:
-    sys.stderr.write(" Unable to create Pipeline \n")`
+    sys.stderr.write(" Unable to create Pipeline \n")
 
 # Source element for reading from the file
 print("Creating Source \n ")
@@ -69,14 +69,14 @@ if is_aarch64():
 print("Creating EGLSink \n")
 sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
 if not sink:
-    sys.stderr.write(" Unable to create egl sink \n")
+    sys.stderr.write(" Unable to create egl sink \n") ````
 
 
 ## step 2: You set the properties of given steps:
  - ex: the streammuxer has `height` `width` `batch_size` `batched-push-timeout` properties
  - ex: the primary predictor has `config-file-path` property
  
-## step 2: You add each step of the pipeline
+## step 3: You add each step of the pipeline
 
 ````print("Adding elements to Pipeline \n")
  pipeline.add(source)
@@ -92,9 +92,9 @@ if not sink:
 ````
 
 
-## step 3: You link each step of the pipeline 
+## step 4: You link each step of the pipeline 
 
-`
+````
 # we link the elements together
 # file-source -> h264-parser -> nvh264-decoder ->
 # nvinfer -> nvvidconv -> nvosd -> video-renderer
@@ -117,15 +117,15 @@ if is_aarch64():
     transform.link(sink)
 else:
     nvosd.link(sink)
-`
+````
 
 ## step 4: You define an event loop where Gstreamer send data
-    `
+    ````
     loop = GObject.MainLoop()
     bus = pipeline.get_bus()
     bus.add_signal_watch()
     bus.connect ("message", bus_call, loop)
-    `
+    ````
     
 ## step 5: You can add "probes to fetch information (bounding boxes coordinates for ex)
 ex: you can set a probe on the on screen display step by using a *static pad sink*
@@ -134,6 +134,18 @@ ex: you can set a probe on the on screen display step by using a *static pad sin
 ` osdsinkpad.add_probe(Gst.PadProbeType.BUFFER, osd_sink_pad_buffer_probe, 0) `
 
 ## step 6: run the pipeline with an infinite loop
+`````
+
+ # start play back and listen to events
+    print("Starting pipeline \n")
+    pipeline.set_state(Gst.State.PLAYING)
+    try:
+        loop.run()
+    except:
+        pass
+
+`````
+
 ## step 7: set the state of the pipeline to void/null
 `pipeline.set_state(Gst.State.PLAYING)`
  
