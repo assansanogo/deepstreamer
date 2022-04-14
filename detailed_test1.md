@@ -78,8 +78,7 @@ if not sink:
  
 ## step 2: You add each step of the pipeline
 
-`
- print("Adding elements to Pipeline \n")
+````print("Adding elements to Pipeline \n")
  pipeline.add(source)
  pipeline.add(h264parser)
  pipeline.add(decoder)
@@ -90,7 +89,7 @@ if not sink:
  pipeline.add(sink)
  if is_aarch64():
      pipeline.add(transform)
-`
+````
 
 
 ## step 3: You link each step of the pipeline 
