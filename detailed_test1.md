@@ -15,7 +15,7 @@ Source (file)
 ## step 1: You define the pipeline
 (define the pipeline + all steps)
 
-````print("Creating Pipeline \n ")
+````` print("Creating Pipeline \n ")
 pipeline = Gst.Pipeline()
 
 if not pipeline:
@@ -69,7 +69,7 @@ if is_aarch64():
 print("Creating EGLSink \n")
 sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
 if not sink:
-    sys.stderr.write(" Unable to create egl sink \n") ````
+    sys.stderr.write(" Unable to create egl sink \n") `````
 
 
 ## step 2: You set the properties of given steps:
@@ -78,7 +78,8 @@ if not sink:
  
 ## step 3: You add each step of the pipeline
 
-````print("Adding elements to Pipeline \n")
+`````
+print("Adding elements to Pipeline \n")
  pipeline.add(source)
  pipeline.add(h264parser)
  pipeline.add(decoder)
@@ -89,12 +90,12 @@ if not sink:
  pipeline.add(sink)
  if is_aarch64():
      pipeline.add(transform)
-````
+`````
 
 
 ## step 4: You link each step of the pipeline 
 
-````
+`````
 # we link the elements together
 # file-source -> h264-parser -> nvh264-decoder ->
 # nvinfer -> nvvidconv -> nvosd -> video-renderer
@@ -117,10 +118,10 @@ if is_aarch64():
     transform.link(sink)
 else:
     nvosd.link(sink)
-````
+`````
 
 ## step 4: You define an event loop where Gstreamer send data
-    ````
+    `````
     loop = GObject.MainLoop()
     bus = pipeline.get_bus()
     bus.add_signal_watch()
